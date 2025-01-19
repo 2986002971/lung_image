@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+data/*
+!data/data_change.py
+
+# pixi environments
+.pixi
+*.egg-info
+
+*.pth

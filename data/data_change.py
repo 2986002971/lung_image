@@ -9,17 +9,14 @@ scale_factor = 0.1  # 缩放比例
 # 读取文件夹中的所有图片
 def load_images_from_folder(folder):
     images = []
-    # 遍历所有子文件夹
-    for subdir in os.listdir(folder):
-        subdir_path = os.path.join(folder, subdir)
-        if os.path.isdir(subdir_path):
-            # 查找子文件夹中的2.jpg
-            img_path = os.path.join(subdir_path, "2.jpg")
-            if os.path.exists(img_path):
-                img = cv2.imread(img_path)
-                if img is not None:
-                    # 保存子文件夹名称和图像
-                    images.append((subdir, img_path, img))
+    # 遍历所有文件
+    for filename in os.listdir(folder):
+        img_path = os.path.join(folder, filename)
+        if os.path.isfile(img_path) and img_path.endswith(".jpg"):
+            img = cv2.imread(img_path)
+            if img is not None:
+                # 保存文件名和图像
+                images.append((filename, img_path, img))
     return images
 
 
@@ -92,8 +89,8 @@ def process_image(img):
 
 # 主函数
 def main():
-    folder_path = "./对照组"  # 替换为您的输入文件夹路径
-    save_folder = "./control"  # 替换为您的输出文件夹路径
+    folder_path = "./CT图片"  # 替换为您的输入文件夹路径
+    save_folder = "./mycoplasma"  # 替换为您的输出文件夹路径
 
     # 确保输出文件夹存在
     if not os.path.exists(save_folder):

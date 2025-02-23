@@ -9,7 +9,15 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
+python = "3.12"
 opencv = "*"
 numpy = "*"
 pytorch = "*"
 torchvision = "*"
+scikit-learn = "*"
+requests = "*"
+certifi = "*"
+pandas = ">=2.2.3,<3"
+openpyxl = ">=3.1.5,<4"
+skl2onnx = ">=1.18.0,<2"
+onnxruntime = ">=1.20.1,<2"
